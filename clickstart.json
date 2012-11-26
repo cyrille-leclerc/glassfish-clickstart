@@ -7,6 +7,7 @@
     "icon" : "https://d3ko533tu1ozfq.cloudfront.net/clickstart/glassfish_icon.png",
     "disabled" : true,
     "supported-by" : "community",
+    "app-package" : "https://s3.amazonaws.com/cloudbees-downloads/clickstart/glassfish-clickstart-1.0.war",
     "order" : 1000,
    
     "runtime": {
