@@ -5,7 +5,7 @@ All built by maven.
 
 <imc src="https://d3ko533tu1ozfq.cloudfront.net/clickstart/glassfish_icon.png"/>
 
-<a href="https://grandcentral.cloudbees.com/?CB_clickstart=https://raw.github.com/michaelneale/glassfish_clickstart/master/clickstart.json"><img src="https://d3ko533tu1ozfq.cloudfront.net/clickstart/deployInstantly.png"/></a>
+<a href="https://grandcentral.cloudbees.com/?CB_clickstart=https://raw.github.com/CloudBees-community/glassfish-clickstart/master/clickstart.json"><img src="https://d3ko533tu1ozfq.cloudfront.net/clickstart/deployInstantly.png"/></a>
 
 Launch this clickstart and glory could be yours too ! Use it as a building block if you like.
 You can launch this on Cloudbees via a clickstart automatically, or follow the instructions below. 
