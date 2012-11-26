@@ -1,0 +1,22 @@
+{
+    "id": "glassfish_basic_clickstack",
+    "name": "Glassfish App Server",
+    "source": "github",
+    "description" : "This is a basic Glassfish app, deployed via Jenkins with maven",
+    "doc-url" : "https://github.com/CloudBees-community/glassfish-clickstart/blob/master/README.md",
+    "icon" : "https://d3ko533tu1ozfq.cloudfront.net/clickstart/glassfish_icon.png",
+    "disabled" : true,
+    "supported-by" : "community",
+    "order" : 1000,
+   
+    "runtime": {
+        "type": "glassfish3"                
+    },
+    "build-with-jenkins": {
+        "template": {
+            "type": "maven",
+            "options": {
+            }
+        }
+    }
+}
