@@ -1,6 +1,6 @@
-#  Glassfish clickstart
+#  GlassFish clickstart
 
-This clickstart sets up a build service, repository and a basic glass fish app with continuous deployment.
+This clickstart sets up a build service, repository and a basic GlassFish app with continuous deployment.
 All built by maven. 
 
 <imc src="https://d3ko533tu1ozfq.cloudfront.net/clickstart/glassfish_icon.png"/>
@@ -10,7 +10,7 @@ All built by maven.
 Launch this clickstart and glory could be yours too ! Use it as a building block if you like.
 You can launch this on Cloudbees via a clickstart automatically, or follow the instructions below. 
 
-This is based on the glassfish stack that you can read more about <a href="https://github.com/CloudBees-community/glassfish3-clickstack">here.</a>
+This is based on the GlassFish stack that you can read more about <a href="https://github.com/CloudBees-community/glassfish3-clickstack">here.</a>
 
 
 # Deploying manually: 
