@@ -5,7 +5,7 @@
     "description" : "This is a basic Glassfish app, deployed via Jenkins with maven",
     "doc-url" : "https://github.com/CloudBees-community/glassfish-clickstart/blob/master/README.md",
     "icon" : "https://d3ko533tu1ozfq.cloudfront.net/clickstart/glassfish_icon.png",
-    "disabled" : true,
+    "disabled" : false,
     "supported-by" : "community",
     "app-package" : "https://s3.amazonaws.com/cloudbees-downloads/clickstart/glassfish-clickstart-1.0.war",
     "order" : 1000,
