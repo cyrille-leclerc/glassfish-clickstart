@@ -8,7 +8,7 @@
     "disabled" : false,
     "supported-by" : "community",
     "app-package" : "https://s3.amazonaws.com/cloudbees-downloads/clickstart/glassfish-clickstart-1.0.war",
-    "order" : 1000,
+    "order" : 1001,
    
     "runtime": {
         "type": "glassfish3"                
