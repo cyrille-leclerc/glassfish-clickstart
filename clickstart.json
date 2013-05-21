@@ -7,12 +7,21 @@
     "icon" : "https://d3ko533tu1ozfq.cloudfront.net/clickstart/glassfish_icon.png",
     "disabled" : false,
     "supported-by" : "community",
-    "app-package" : "https://s3.amazonaws.com/cloudbees-downloads/clickstart/glassfish-clickstart-1.0.war",
+    "app-package" : "https://cyrille-leclerc.ci.cloudbees.com/job/glassfish-clickstart/lastSuccessfulBuild/artifact/target/glassfish-clickstart-1.0.0-SNAPSHOT.war",
     "order" : 1001,
    
     "runtime": {
-        "type": "glassfish3"                
+        "type": "glassfish3"  ,
+        "app-parameters" : {
+            "runtime.PLUGIN.SRC.glassfish3": "https://cyrille-leclerc.ci.cloudbees.com/job/glassfish3-clickstack/lastSuccessfulBuild/artifact/glassfish3-plugin.zip"
+        }
     },
+    "databases": [
+        {
+            "type": "mysql",
+            "alias": "mydb"
+        }
+    ],
     "build-with-jenkins": {
         "template": {
             "type": "maven",
