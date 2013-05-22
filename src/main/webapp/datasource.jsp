@@ -5,6 +5,12 @@
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="javax.naming.InitialContext" %>
 <%@ page import="java.sql.DatabaseMetaData" %>
+<%
+    String jndiName = request.getParameter("jndiName");
+    if(jndiName == null || jndiName.isEmpty()) {
+        jndiName = "jdbc/mydb";
+    }
+%>
 <html>
 <body>
 <h1>DataSource demo</h1>
@@ -20,7 +26,7 @@ DataSource is declared in file <code>${WEBAPP_HOME}/WEB-INF/glassfish-resources.
         <td>
 <pre>
 Context ctx = new InitialContext();
-DataSource ds = (DataSource) ctx.lookup("jdbc/mydb");
+DataSource ds = (DataSource) ctx.lookup("<%= jndiName %>");
 Connection conn = ds.getConnection();
 ResultSet rst = stmt.executeQuery("select 1");
 while (rst.next()) {
@@ -38,7 +44,7 @@ conn.close();
 <p>
         <%
         Context ctx = new InitialContext();
-        DataSource ds = (DataSource) ctx.lookup("jdbc/mydb");
+        DataSource ds = (DataSource) ctx.lookup(jndiName);
         Connection conn = ds.getConnection();
         DatabaseMetaData databaseMetaData = conn.getMetaData();
     %>

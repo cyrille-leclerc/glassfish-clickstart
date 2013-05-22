@@ -69,22 +69,19 @@ bees db:create my-glassfish3-db
 bees app:bind -a my-glassfish3-app -db my-glassfish3-db -as mydb
 ```
 
-Please note in `web.xml`:
+Supported JNDI names:
 
-```xml
-<resource-ref>
-   <res-ref-name>jdbc/mydb</res-ref-name>
-   <res-type>javax.sql.DataSource</res-type>
-   <res-auth>Container</res-auth>
-   <res-sharing-scope>Shareable</res-sharing-scope>
-</resource-ref>
-```
+ * `jdbc/mydb` : unqualified relative JNDI name is **OK**
+ * `java:comp/env/jdbc/mydb`: qualified private name is **OK**
+ * <del><code>java:jdbc/mydb</code></del> and <del><code>java:/jdbc/mydb</code></del>: qualified relative names are **KO**
+ * <del><code>java:global/env/jdbc/mydb</code></del>: qualified global name is **KO**
 
-And in java code:
+Samples:
 
 ```java
 Context ctx = new InitialContext();
 DataSource ds = (DataSource) ctx.lookup("jdbc/mydb");
+DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/mydb");
 ```
 
 ## Restart Glassfish
