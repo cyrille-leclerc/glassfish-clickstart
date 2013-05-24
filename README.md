@@ -5,7 +5,7 @@ All built by maven.
 
 <imc src="https://d3ko533tu1ozfq.cloudfront.net/clickstart/glassfish_icon.png"/>
 
-<a href="https://grandcentral.cloudbees.com/?CB_clickstart=https://raw.github.com/cyrille-leclerc/glassfish-clickstart/master/clickstart.json"><img src="https://d3ko533tu1ozfq.cloudfront.net/clickstart/deployInstantly.png"/></a>
+<a href="https://grandcentral.cloudbees.com/?CB_clickstart=https://raw.github.com/CloudBees-community/glassfish-clickstart/master/clickstart.json"><img src="https://d3ko533tu1ozfq.cloudfront.net/clickstart/deployInstantly.png"/></a>
 
 Launch this clickstart and glory could be yours too ! Use it as a building block if you like.
 You can launch this on Cloudbees via a clickstart automatically, or follow the instructions below. 
@@ -51,10 +51,8 @@ Maven sample:
 ## Create a Glassfish3 container
 
 ```
-bees app:deploy -a my-glassfish3-app -t glassfish3 -RPLUGIN.SRC.glassfish3=https://cyrille-leclerc.ci.cloudbees.com/job/glassfish3-clickstack/lastSuccessfulBuild/artifact/glassfish3-plugin.zip path/to/my/app.war
+bees app:deploy -a my-glassfish3-app -t glassfish3 path/to/my/app.war
 ```
-
-Please don't change stack name `-t glassfish3`.
 
 
 ## Create a MySQL Database
