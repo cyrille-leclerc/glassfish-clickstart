@@ -17,9 +17,10 @@
         xmlns="http://java.sun.com/xml/ns/javaee"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-        id="glassfish3-clickstart" version="3.0" metadata-complete="true">
+        id="glassfish3-clickstart" version="3.0" metadata-complete="false">
     <display-name>glassfish3-clickstart</display-name>
     <distributable/>
+    
     <!--
     <resource-ref> declaration is NOT mandatory, Glassfish3 discovers the datasource without <resource-ref> declaration
 
@@ -30,4 +31,28 @@
         <res-sharing-scope>Shareable</res-sharing-scope>
     </resource-ref>
     -->
+    <security-constraint>
+        <display-name>protected-pages</display-name>
+        <web-resource-collection>
+            <web-resource-name>protected-pages</web-resource-name>
+            <url-pattern>/protected/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>authenticatedUser</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>authentication-realm</realm-name>
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/loginError.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <role-name>authenticatedUser</role-name>
+    </security-role>
 </web-app>
