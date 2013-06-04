@@ -11,7 +11,10 @@
     "order" : 1001,
    
     "runtime": {
-        "type": "glassfish3"
+        "type": "glassfish3",
+        "app-parameters" : {
+            "runtime.glassfish3.auth-realm.database": "mydb"
+        }
     },
     "databases": [
         {
