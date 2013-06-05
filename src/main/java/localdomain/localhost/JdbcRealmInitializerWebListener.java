@@ -127,7 +127,10 @@ public class JdbcRealmInitializerWebListener implements ServletContextListener {
     }
 
     private void createTablesIfNotExist(Connection cnn) {
-        if (!tableExists("cb_users", cnn)) {
+        if (tableExists("cb_users", cnn)) {
+            logger.info("table cb_users already exists");
+        } else {
+            logger.info("create table cb_users");
             String sql =
                     "CREATE TABLE `cb_users` (                 \n" +
                             "  `username` varchar(255) NOT NULL,       \n" +
@@ -138,7 +141,10 @@ public class JdbcRealmInitializerWebListener implements ServletContextListener {
         }
 
 
-        if (!tableExists("cb_users", cnn)) {
+        if (tableExists("cb_groups", cnn)) {
+            logger.info("table cb_groups already exists");
+        } else {
+            logger.info("create table cb_groups");
             String sql =
                     "CREATE TABLE `cb_groups` (                        \n" +
                             "  `groupname` varchar(255) NOT NULL,      \n" +
