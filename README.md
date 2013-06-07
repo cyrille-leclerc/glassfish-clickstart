@@ -15,45 +15,12 @@ This is based on the GlassFish stack that you can read more about <a href="https
 
 # Deploying manually: 
 
-## Include mysql-connector jar in `${war_home}/META-INF/lib`
-
-Maven sample:
-
-```xml
-
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-dependency-plugin</artifactId>
-    <version>2.7</version>
-    <executions>
-        <execution>
-            <id>copy</id>
-            <phase>prepare-package</phase>
-            <goals>
-                <goal>copy</goal>
-            </goals>
-            <configuration>
-                <artifactItems>
-                    <artifactItem>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                        <version>5.1.24</version>
-                        <type>jar</type>
-                    </artifactItem>
-                </artifactItems>
-                <outputDirectory>${project.build.directory}/appserver-dependency</outputDirectory>
-            </configuration>
-        </execution>
-    </executions>
-</plugin>
-```
 
 ## Create a Glassfish3 container
 
 ```
-bees app:deploy -a my-glassfish3-app -t glassfish3 path/to/my/app.war
+bees app:create -a my-glassfish3-app -t glassfish3
 ```
-
 
 ## Create a MySQL Database
 
@@ -69,10 +36,10 @@ bees app:bind -a my-glassfish3-app -db my-glassfish3-db -as mydb
 
 Supported JNDI names:
 
- * `jdbc/mydb` : unqualified relative JNDI name is **OK**
- * `java:comp/env/jdbc/mydb`: qualified private name is **OK**
- * <del><code>java:jdbc/mydb</code></del> and <del><code>java:/jdbc/mydb</code></del>: qualified relative names are **KO**
- * <del><code>java:global/env/jdbc/mydb</code></del>: qualified global name is **KO**
+ * `jdbc/mydb` : unqualified relative JNDI name is supported / **OK**
+ * `java:comp/env/jdbc/mydb`: qualified private name is supported / **OK**
+ * <del><code>java:jdbc/mydb</code></del> and <del><code>java:/jdbc/mydb</code></del>: qualified relative names are not supported by Glassfish / **KO**
+ * <del><code>java:global/env/jdbc/mydb</code></del>: qualified global name is not supported by Glassfish / **KO**
 
 Samples:
 
@@ -82,10 +49,16 @@ DataSource ds = (DataSource) ctx.lookup("jdbc/mydb");
 DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/mydb");
 ```
 
-## Restart Glassfish
+## Configure Jdbc Realm
 
 ```
-bees app:restart -a my-glassfish3-app
+bees config:set -a my-glassfish3-app -R glassfish3.auth-realm.database=mydb
+```
+
+## Deploy Application
+
+```
+bees app:deploy -a my-glassfish3-app path/to/my/app.war
 ```
 
 ## Jenkins Job
