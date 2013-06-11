@@ -1,6 +1,6 @@
 {
-    "id": "glassfish_basic_clickstack",
-    "name": "Glassfish App Server",
+    "id": "glassfish_basic_clickstart",
+    "name": "Glassfish 3 App",
     "source": "github",
     "description" : "This is a basic Glassfish app, deployed via Jenkins with maven",
     "doc-url" : "https://github.com/CloudBees-community/glassfish-clickstart/blob/master/README.md",
